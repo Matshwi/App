@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>App name - UI Login Form</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login App</title>
+	<link rel="stylesheet" type="text/css" href="jslogin.css">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86">
+
+</head>
+<body>
+	<div class="app">
+
+		<div class="bg" style="background: linear-gradient(to right, #32be8f, #38d39f, #32be8f);"></div>
+
+		<form>
+			<header>
+				<img src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reading_0re1.svg">
+			</header>
+
+			<div class="inputs">
+				<input type="text" id="Company" placeholder="Company name">
+				<input type="text" id="Address" placeholder="Address(please include store number if possible)">
+				<input type="text" id="link" placeholder="link to website">
+				<input type="text" id="field" placeholder="field (retailer, automotive, clothing)">
+				<input type="text" id="email" placeholder="email">
+				<input type="password" id="pass" placeholder="password">
+				<input type="file" id="photo">
+			</div>
+
+		</form>
+
+		<footer>
+			<button id="insert" onclick="register()" style="cursor: pointer;">Continue</button>
+		</footer>
+
+
+	</div>
+</body>
+</html>
+<!-- partial -->
+  
+
+<!-- TODO: Add SDKs for Firebase products that you want to use 
+
+ https://firebase.google.com/docs/web/setup#available-libraries -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <!--<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>-->
+
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+
+  <script type="text/javascript">
+  	
+  	// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBJIFHI6-heOanbGwgOJPzDUnSprKVYibo",
+  authDomain: "hackathon-22201.firebaseapp.com",
+  databaseURL: "https://hackathon-22201-default-rtdb.firebaseio.com",
+  projectId: "hackathon-22201",
+  storageBucket: "hackathon-22201.appspot.com",
+  messagingSenderId: "992681123090",
+  appId: "1:992681123090:web:f0f35ff9d8bb4ee44667cb",
+  measurementId: "G-2KSFQT6NHD"
+};
+
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+// Initialize variables
+const auth = firebase.auth()
+const database = firebase.database()
+
+
+
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const theid = urlParams.get('emaid')
+const thename = urlParams.get('name')
+
+
+
+
+var imgurl;
+
+var files = [];
+
+//var name = document.getElementById("name").value;
+//var desc = document.getElementById("desc").value;
+//var activity = document.getElementById("activity").value;
+//var skills = document.getElementById("skills").value;
+//var Sponsor = document.getElementById("Sponsor").value;
+//var img = name;
+
+var reader;
+
+
+
+
+
+//insert
+
+// Set up our register function
+function register() {
+  // Get all our input fields
+  Regnum = document.getElementById('Regnum').value
+  Company = document.getElementById('Company').value
+  Address = document.getElementById('Address').value
+  link = document.getElementById('link').value
+  field = document.getElementById('field').value
+  email = document.getElementById('email').value
+  password = document.getElementById('pass').value
+var imgurl;
+
+var files = [];
+var reader;
+
+
+  // Validate input fields
+  if (validate_email(email) == false || validate_password(password) == false) {
+    alert('Email or Password is Outta Line!!')
+    return
+    // Don't continue running the code
+  }
+  if (validate_field(Regnum) == false || validate_field(Company) == false || validate_field(Address) == false || validate_field(link) == false || validate_field(field) == false) {
+    alert('One or More Extra Fields is Outta Line!!')
+    return
+  }
+
+  var uploadtask = firebase.storage().ref('vendorMedia/');
+
+  const file = document.querySelector("#photo").files[0];
+      const   nameofimg = Date.now() + "-" + file.name;
+      const metadata = {
+        contentType: file.type
+      };
+      const task = uploadtask.child(nameofimg);
+
+ task.put(file, metadata).then(data => {
+                data.ref.getDownloadURL().then(url => {
+                    imgurl = url;
+ 
+  // Move on with Auth
+  auth.createUserWithEmailAndPassword(email, password)
+  .then(function() {
+    // Declare user variable
+    var user = auth.currentUser
+
+    // Add this user to Firebase Database
+    var database_ref = database.ref()
+
+    // Create User data
+    var user_data = {
+      Email : email,
+      Company: Company,
+      Address : Address,
+      Website : link,
+      Field: field,
+      Logo: imgurl,
+      last_login : Date.now()
+    }
+
+    // Push to Firebase Database
+    database_ref.child('vendor/' + user.uid).set(user_data)
+
+    // DOne
+    alert('User Created!!')
+    location.href = "../../Post/index.html?userid=" + user.uid
+    });
+
+  });
+  })
+  .catch(function(error) {
+    // Firebase will use this to alert of its errors
+    var error_code = error.code
+    var error_message = error.message
+
+    alert(error_message)
+  })
+}
+
+
+
+
+
+
+
+
+
+
+// Validate Functions
+function validate_email(email) {
+  expression = /^[^@]+@\w+(\.\w+)+\w$/
+  if (expression.test(email) == true) {
+    // Email is good
+    return true
+  } else {
+    // Email is not good
+    return false
+  }
+}
+
+function validate_password(password) {
+  // Firebase only accepts lengths greater than 6
+  if (password < 6) {
+    return false
+  } else {
+    return true
+  }
+}
+
+function validate_field(field) {
+  if (field == null) {
+    return false
+  }
+
+  if (field.length <= 0) {
+    return false
+  } else {
+    return true
+  }
+}
+
+
+  </script>
+
+
+
+
+</body>
+</html>
