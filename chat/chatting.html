@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daai Epp | Home</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="chat.css">
+    
+<style type="text/css">
+    
+    section:nth-child(even) {
+    background: #eee;
+}
+
+.store{
+    float: left;
+    width: 20px;
+    border-radius: 20px;
+}
+
+.customer{
+    float: right;
+    width: 20px;
+    border-radius: 20px;
+    margin-left: 100%;
+}
+
+.names{
+    font-size: 15px;
+}
+.customchat{
+    border-radius: 9rem 0rem 9rem 9rem !important;
+}
+.fa-trash{
+    float: left !important;
+}
+
+</style>
+
+
+</head>
+<body>
+    
+<!-- header section starts      -->
+
+<header>
+
+    <a href="#" class="logo"><i class="fas fa-utensils"></i>Daai-Epp.</a>
+
+    <nav class="navbar">
+        <a onclick="home()">home</a>
+        <a onclick="todo()">todo</a>
+        <a onclick="delivery()">delivery</a>
+        <a onclick="cart()">cart</a>
+        <a onclick="checkout()">checkout</a>
+        <a class="active" href="#">chat to store</a>
+    </nav>
+
+    <div class="icons">
+        <i class="fas fa-bars" id="menu-bars"></i>
+        <i class="fas fa-search" id="search-icon"></i>
+        <a href="#" class="fas fa-heart"></a>
+        <a href="#" class="fas fa-shopping-cart"></a>
+    </div>
+
+</header>
+
+<!-- header section ends-->
+
+<!-- search form  -->
+
+<form action="" id="search-form">
+    <input type="search" placeholder="search here..." name="" id="search-box">
+    <label for="search-box" class="fas fa-search"></label>
+    <i class="fas fa-times" id="close"></i>
+</form>
+
+<section class="home" id="home">
+
+    <div class="swiper-container home-slider">
+
+        <div class="swiper-wrapper wrapper" id="slider">
+
+          <div class="swiper-slide slide">
+                <div class="content">
+                </div>
+                <div class="image">
+                    
+                </div>
+            </div>
+
+        </div>
+
+        <!--<div class="swiper-pagination"></div>-->
+
+    </div>
+
+</section>
+
+<!-- home section starts  -->
+
+<section class="dishes" id="dishes" style="margin-top: 10%">
+
+    
+    <h1 class="heading"> Connect with your store </h1>
+
+    <div class="box-container" id="messages">
+
+        
+
+        
+
+
+    </div>
+
+</section>
+
+<form onsubmit="return sendMessage();" style="height: 60px;">
+    <input id="message" placeholder="Enter message" autocomplete="off" style="height: 100%">
+ 
+    <input type="submit" style="float: right;background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/send.png') 0 -41px no-repeat;">
+</form>
+
+<!-- Categories section ends -->
+
+
+
+<!-- Categories section starts  -->
+
+
+
+<!-- dishes section ends -->
+
+<!-- about section starts  -->
+
+
+
+<!-- about section ends -->
+
+<!-- menu section starts  -->
+
+
+
+<!-- menu section ends -->
+
+<!-- review section starts  -->
+
+
+
+<!-- review section ends -->
+
+<!-- order section starts  -->
+
+
+
+<!-- order section ends -->
+
+<!-- footer section starts  -->
+
+
+
+<!-- footer section ends -->
+
+<!-- loader part  -->
+<div class="loader-container">
+    <img src="../images/loader.gif" alt="">
+</div>
+
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="../js/script.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use 
+
+ https://firebase.google.com/docs/web/setup#available-libraries -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <!--<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>-->
+
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+
+<script type="text/javascript">
+
+    const firebaseConfig = {
+  apiKey: "AIzaSyBJIFHI6-heOanbGwgOJPzDUnSprKVYibo",
+  authDomain: "hackathon-22201.firebaseapp.com",
+  databaseURL: "https://hackathon-22201-default-rtdb.firebaseio.com",
+  projectId: "hackathon-22201",
+  storageBucket: "hackathon-22201.appspot.com",
+  messagingSenderId: "992681123090",
+  appId: "1:992681123090:web:f0f35ff9d8bb4ee44667cb",
+  measurementId: "G-2KSFQT6NHD"
+};
+
+ // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+ // firebase.analytics();
+// Initialize variables
+const auth = firebase.auth()
+const database = firebase.database()
+    
+    const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const userid = urlParams.get('userid')
+const vendor = urlParams.get('vendor')
+const items = urlParams.get('items')
+    
+
+
+
+
+
+function sendMessage() {
+        // get message
+        var message = document.getElementById("message").value;
+ 
+        // save in database
+        firebase.database().ref("messages").push().set({
+            "receiver": vendor,
+            "sender": userid,
+            "message": message,
+            "Date": new Date().toLocaleDateString(),
+        });
+ 
+        // prevent form from submitting
+        return false;
+    }
+
+
+
+
+    
+
+
+    // listen for incoming messages
+    firebase.database().ref("messages").on("child_added", function (snapshot) {
+        
+
+var sender = snapshot.val().sender;
+var receiver = snapshot.val().receiver;
+
+
+
+
+
+
+if(sender == vendor && receiver == userid || sender == userid && receiver == vendor){
+
+    if (sender == vendor || receiver == userid) {
+
+
+    html = ` <img src="../images/pic-1.png" class="store">
+<div class="box">
+            
+            
+            <p class='names'>${snapshot.val().message}r</p>
+            
+           <!-- <span>date</span>-->
+            
+        </div>`;
+}
+
+else if (sender == userid || receiver == vendor) {
+
+        html = `<img src="../images/pic-1.png" class="customer">
+<div class="customchat box">
+            
+            
+            <p class='names'>${snapshot.val().message}</p>
+            <div class="stars">
+                <i class="fas fa-trash"></i>
+            </div>
+           <!-- <span>date</span>-->
+            
+        </div>`;
+        }
+
+document.getElementById("messages").innerHTML += html;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+        var html = "";
+        // give each message a unique ID
+        html += `<li id='message-" + ${snapshot.key} + "'>`;
+        // show delete button if message is sent by me
+        if (snapshot.val().sender == myName) {
+            html += "<button data-id='" + snapshot.key + "' onclick='deleteMessage(this);'>";
+                html += "Delete";
+            html += "</button>";
+        }
+        html += snapshot.val().sender + ": " + snapshot.val().message;
+        html += "</li>";
+ 
+        document.getElementById("messages").innerHTML += html;*/
+    });
+/*
+    function deleteMessage(self) {
+    // get message ID
+    var messageId = self.getAttribute("data-id");
+ 
+    // delete message
+    firebase.database().ref("messages").child(messageId).remove();
+}*/
+ 
+// attach listener for delete message
+/*
+firebase.database().ref("messages").on("child_removed", function (snapshot) {
+    // remove message node
+    document.getElementById("message-" + snapshot.key).innerHTML = "This message has been removed";
+});*/
+
+ var firepro = firebase.database().ref('vendor/' + vendor);
+
+firepro.on("value", function(snapshot){
+
+
+  //snapshot.forEach(function(element){
+
+    
+
+    document.querySelector('.image').innerHTML += 
+      `
+      <img src="${snapshot.val().Logo}">
+
+`
+
+    ;
+
+  
+
+
+ // });
+});
+
+
+
+function todo(){
+    location.href = '../todo.html?userid=' + userid + "&vendor="+ vendor + "&items="+ items;
+}
+function delivery(){
+    location.href = '../delivery.html?userid=' + userid + "&items="+ items + "&vendor="+ vendor;
+}
+function cart(){
+    location.href = '../cart.html?userid=' + userid + "&items="+ items + "&vendor="+ vendor;
+}
+function checkout(){
+    location.href = '../checkout.html?userid=' + userid + "&items="+ items + "&vendor="+ vendor;
+}
+function home(){
+    location.href = '../index.html?userid=' + userid + "&items="+ items + "&vendor="+ vendor;
+}
+
+
+</script>
+
+</body>
+</html>
