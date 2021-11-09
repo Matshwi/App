@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <title>Daai Epp | Home</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+
+    <link rel="stylesheet" href="css/todo.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/invoice.css">
+    <link rel="stylesheet" href="css/all.min.css">
+
+    
+<style type="text/css">
+    .fa-utensils:before {
+    content: "\f2e7";
+}
+
+#slider {
+  -webkit-overflow-scrolling: touch;
+  border: none;
+}
+
+#slider{
+    overflow-x: auto;
+    display:inline-flex;
+}
+</style>
+
+
+</head>
+<body>
+    
+<!-- header section starts      -->
+
+<header>
+
+    <a href="#" class="logo"><i class="fas fa-utensils"></i>Daai-Epp.</a>
+
+    <nav class="navbar">
+        <a href="home.html" onclick="home()">home</a>
+        <a class="active" href="#">todo</a>
+        <a onclick="delivery()">delivery</a>
+        <a onclick="cart()">cart</a>
+        <a onclick="checkout()">checkout</a>
+        <a onclick="chat()">chat to store</a>
+    </nav>
+
+    <div class="icons">
+        <i class="fas fa-bars" id="menu-bars"></i>
+        <i class="fas fa-search" id="search-icon"></i>
+        <a href="#" class="fas fa-heart"></a>
+        <a href="#" class="fas fa-shopping-cart"></a>
+    </div>
+
+</header>
+
+<!-- header section ends-->
+
+<!-- search form  -->
+
+<form action="" id="search-form">
+    <input type="search" placeholder="search here..." name="" id="search-box">
+    <label for="search-box" class="fas fa-search"></label>
+    <i class="fas fa-times" id="close"></i>
+</form>
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="swiper-container home-slider">
+
+        <div class="swiper-wrapper wrapper"  id="slider">
+
+           
+
+        </div>
+
+        <!--<div class="swiper-pagination"></div>-->
+
+    </div>
+
+</section>
+
+<!-- Categories section ends -->
+
+<div class="content">
+
+
+            <div class="form" id="add-cafe-form" style="margin-top: 230px;">
+                
+        <input type="text" name="name" id="name" placeholder="Product" list="product">
+        <datalist id="product">
+    
+  </datalist> 
+                <input type="text" id="branded" name="brand" placeholder="brand" list="brand">
+                <datalist id="brand">
+  </datalist> 
+                <button id="additem">Add item</button>
+            </div>
+
+            <ul id="cafe-list"></ul>
+
+
+            <div class="contain">
+  <div class="invoice">
+    <div class="header">
+      <section class="section">
+        <h1 id="nameofstore"></h1>
+        <span id="date"></span>
+      </section>
+
+      <section class="section">
+        <span id="invoicenum"></span>
+      </section>
+    </div>
+
+    <main>
+      <section id="detail" class="section">
+        <span>Product</span>
+        <span>Unit</span>
+        <span>Price</span>
+      </section>
+
+      <section id="details" class="section">
+        
+
+        
+      </section>
+
+      <section class="section">
+        <span>Total</span>
+        <span>9.90</span>
+      </section>
+    </main>
+
+    <footer>
+      <a class='showhide' style="cursor: pointer;">show/hide</a>
+      <a href="#0">Pay Now</a>
+    </footer>
+  </div>
+</div>
+
+
+
+        </div>
+
+<!-- Categories section starts  -->
+
+
+
+<!-- dishes section ends -->
+
+<!-- about section starts  -->
+
+
+
+<!-- about section ends -->
+
+<!-- menu section starts  -->
+
+
+
+<!-- menu section ends -->
+
+<!-- review section starts  -->
+
+
+
+<!-- review section ends -->
+
+<!-- order section starts  -->
+
+
+
+<!-- order section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>locations</h3>
+            <a href="#">Johannesburg</a>
+            <a href="#">Pretoria</a>
+            <a href="#">Mamelodi</a>
+            <a href="#">Soshanguve</a>
+            <a href="#">Attridgville</a>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">home</a>
+            <a href="#">dishes</a>
+            <a href="#">about</a>
+            <a href="#">menu</a>
+            <a href="#">reivew</a>
+            <a href="#">order</a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#">079-456-7890</a>
+            <a href="#">081-222-3333</a>
+            <a href="#">info@gmail.com</a>
+            <a href="#">request@gmail.com</a>
+            <a href="#">Pretoria, South Africa - 0001</a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#">facebook</a>
+            <a href="#">twitter</a>
+            <a href="#">instagram</a>
+            <a href="#">linkedin</a>
+        </div>
+
+    </div>
+
+    
+
+</section>
+
+<!-- footer section ends -->
+
+<!-- loader part  -->
+<div class="loader-container">
+    <img src="images/loader.gif" alt="">
+</div>
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use 
+
+ https://firebase.google.com/docs/web/setup#available-libraries -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  
+  <!--<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>-->
+
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+
+<script type="text/javascript">
+    
+    const detail = document.querySelector('#detail');
+    const details = document.querySelector('#details');
+
+    const cont = document.querySelector('.showhide');
+
+    var a;
+      cont.addEventListener('click', ()=>{
+
+        if (a==1) {
+          detail.style.display = 'block';
+          details.style.display = 'block';
+          cont.innerHTML = "Hide";
+          return a=0;
+        }
+        else {
+          details.style.display = 'none';
+          detail.style.display = 'none';
+         cont.innerHTML = "show";
+          return a=1;
+
+        }
+
+      })
+
+
+
+      // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyBJIFHI6-heOanbGwgOJPzDUnSprKVYibo",
+                authDomain: "hackathon-22201.firebaseapp.com",
+                databaseURL: "https://hackathon-22201-default-rtdb.firebaseio.com",
+                projectId: "hackathon-22201",
+                storageBucket: "hackathon-22201.appspot.com",
+                messagingSenderId: "992681123090",
+                appId: "1:992681123090:web:f0f35ff9d8bb4ee44667cb",
+                measurementId: "G-2KSFQT6NHD"
+            };
+
+
+            firebase.initializeApp(config);
+            const db = firebase.firestore();
+            db.settings({ timestampsInSnapshots: true });
+
+            
+            const database = firebase.database()
+
+
+const urlParams = new URLSearchParams(window.location.search);
+const vendor = urlParams.get('vendor');
+const userid = urlParams.get('userid');
+const items = urlParams.get('items');
+
+
+
+
+
+var firesuggestion = firebase.database().ref('products');
+
+firesuggestion.on("value", function(snapshot){
+ // console.log(snapshot.val());
+
+  snapshot.forEach(function(element){
+
+   
+
+    document.querySelector('#product').innerHTML += 
+      `<option value="${element.val().Name}">
+
+        
+`;
+
+document.querySelector('#brand').innerHTML += 
+      `<option value="${element.val().Brand}">
+
+        
+`;
+
+  
+
+
+  });
+});
+
+
+db.collection('invoice/' + userid + "/" + vendorid).get().then((snapshot) => {
+  snapshot.docs.forEach(doc => {
+    console.log(doc.data().provider);
+
+    if (doc.data().provider == vendorid) {
+
+    document.querySelector('#details').innerHTML += 
+      `
+      <figure>
+          <span><strong>${doc.data().Name}</strong> (${doc.data().brand})</span>
+          <span><input type="number" name="" value="1" style="width: 35px;"></span>
+          <span>${doc.data().Price}</span>
+        </figure>
+
+        
+`;
+}
+
+  })
+})
+
+
+var firevend = firebase.database().ref('vendor/' + vendorid);
+
+firevend.on("value", function(snapshot){
+ 
+
+
+
+   
+document.querySelector('#nameofstore').innerHTML += 
+      `${snapshot.val().Company}
+
+        
+`;
+  
+});
+
+   const d = new Date();
+let day = d.getDate();
+
+const aa = new Date();
+let month = aa.getMonth() + 1;
+
+const b = new Date();
+let year = b.getFullYear();
+document.querySelector('#date').innerHTML = day +'/'+ month+'/'+year;
+
+ var generateNumber = function(start, range) {
+  var getrandom = Math.floor((Math.random() * range) + start);
+  while(getrandom > range){
+    getrandom = Math.floor((Math.random() * range) + start)
+  }
+  return getrandom;
+}
+
+document.querySelector('#invoicenum').innerHTML = generateNumber(1, 5000000);
+
+
+
+var firestores = firebase.database().ref('vendor');
+
+firestores.on("value", function(snapshot){
+  //console.log(snapshot.val());
+
+  snapshot.forEach(function(element){
+console.log(element.key);
+   
+
+    document.querySelector('#slider').innerHTML += 
+      `<div class="swiper-slide slide" onclick="location.href = 'todo.html?userid=${userid}&vendorid=${element.key}'">
+                <div class="content">
+                   <!-- <span>our special dish</span>
+                    <h3>spicy noodles</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?</p>-->
+                    <a href="#" class="btn">order now</a>
+                </div>
+                <div class="image">
+                    <img src="${element.val().Logo}" alt="">
+                </div>
+            </div>
+
+        
+`
+
+    ;
+
+  
+
+
+  });
+});
+
+
+
+
+
+const cafeList = document.querySelector('#cafe-list');
+const form = document.querySelector('#add-cafe-form');
+
+
+
+const Categories = urlParams.get('items');
+
+//console.log(userid + " user id");
+
+// create element & render cafe
+function renderCafe(doc){
+    console.log(doc.data().provider);
+    //if (true) {}
+    let li = document.createElement('li');
+    let name = document.createElement('span');
+    let brand = document.createElement('p');
+    let cross = document.createElement('div');
+
+    li.setAttribute('data-id', doc.id);
+    name.textContent = doc.data().Name;
+    brand.textContent = doc.data().brand;
+    cross.textContent = 'x';
+
+    li.appendChild(name);
+    li.appendChild(brand);
+    li.appendChild(cross);
+
+    cafeList.appendChild(li);
+
+    // deleting data
+    cross.addEventListener('click', (e) => {
+        e.stopPropagation();
+        let id = e.target.parentElement.getAttribute('data-id');
+        db.collection('todo/' + userid + "/" + vendorid).doc(id).delete();
+    });
+}
+
+// getting data
+
+
+// saving data
+
+var additem = document.getElementById('additem');
+additem.addEventListener('click', (e) => {
+
+    
+    //let productKey;
+    //let productData = {};
+    firebase.database().ref('products').on('value', function(snapshot) {
+        
+                console.log(snapshot.val().Price);
+            snapshot.forEach(function(element){
+
+        console.log(element.val().Price);
+
+       const nameofpro = document.querySelector("#name").value
+       const brandofpro = document.querySelector("#branded").value
+
+        if (element.val().Name == nameofpro && element.val().Brand == brandofpro) {
+          console.log(element.val());
+        
+
+      /*if price shows in the console you will make an if condition to check 
+      for specific value however then print out if it does not work you will then
+        consider if the orderByChild and equalsTo is able to take two parameters
+         if not what can*/
+
+ 
+      const urlParams = new URLSearchParams(window.location.search);
+const userid = urlParams.get('userid');
+var uid = Date.now();
+    
+    e.preventDefault();
+
+firebase.database().ref('cart/'+ userid + '/' + uid).set({
+        provider:vendorid,
+        photo:element.val().logo,
+        title:element.val().Name,
+        description: element.val().Tag,
+        category:element.val().Category,
+        price:element.val().Price,
+        quantity: 1,
+    })
+
+
+
+    
+    db.collection('todo/' + userid + "/" + vendorid).add({
+        Name: nameofpro,
+        brand: brandofpro,
+        user: userid,
+    });
+
+    db.collection('invoice/' + userid + "/" + vendorid).add({
+        Name: nameofpro,
+        brand: brandofpro,
+        user: userid,
+        provider: vendorid,
+        Price: element.val().Price,
+    });
+    nameofpro = '';
+    brandofpro = '';
+
+    }
+});
+
+});
+    
+
+  
+
+});
+
+
+/*
+ db.collection('cafes').orderBy('city').get().then(snapshot => {
+     snapshot.docs.forEach(doc => {
+         renderCafe(doc);
+     });
+});
+
+*/
+
+// real-time listener
+db.collection('todo/' + userid + "/" + vendorid).orderBy('brand').onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    changes.forEach(change => {
+        
+        if(change.type == 'added'){
+            
+            console.log(change.doc);
+            renderCafe(change.doc);
+        } else if (change.type == 'removed'){
+            let li = cafeList.querySelector('[data-id=' + change.doc.id + ']');
+            cafeList.removeChild(li);
+        }
+    });
+});
+
+
+
+
+db.collection('todo').orderBy('brand').onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    changes.forEach(change => {
+        console.log(change.doc.data());
+        
+    });
+});
+
+
+
+function home(){
+    location.href = 'index.html?userid=' + userid + "&vendor=" + vendor + "&items" + items;
+}
+function delivery(){
+    location.href = 'delivery.html?userid=' + userid;
+}
+function cart(){
+    location.href = 'cart.html?userid=' + userid;
+}
+function checkout(){
+    location.href = 'checkout.html?userid=' + userid;
+}
+function chat(){
+    location.href = 'chat/chat.html?userid=' + userid;
+}
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daai Epp | Home</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script type="text/javascript">
+(function() {
+emailjs.init("user_CLA2teKBvSMnY7dqX8NSu");
+})();
+</script>
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+<style type="text/css">
+    
+    #slider {
+  -webkit-overflow-scrolling: touch;
+  border: none;
+}
+
+#slider{
+    overflow-x: auto;
+    display:inline-flex;
+}
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  font-size: 20px;
+}
+
+/* The Close Button */
+.close {
+  color: black;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.goto{
+    margin-left: 15px;
+    width: 70%;
+    background: lightseagreen;
+    border-radius: 5rem 5rem 5rem 5rem;
+    height: 40px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+</style>
+</head>
+<body>
+    
+<!-- header section starts      -->
+
+<header>
+
+    <a href="#" class="logo"><i class="fas fa-utensils"></i>Daai-Epp.</a>
+
+    <nav class="navbar">
+        <a class="active" href="#">home</a>
+        <a onclick="todo()">todo</a>
+        <a onclick="delivery()">delivery</a>
+        <a onclick="cart()">cart</a>
+        <a onclick="checkout()">checkout</a>
+        <a onclick="chat()">chat to store</a>
+    </nav>
+
+    <div class="icons">
+        <i class="fas fa-bars" id="menu-bars"></i>
+        <i class="fas fa-search" id="search-icon"></i>
+        <a href="#" class="fas fa-heart"></a>
+        <a href="#" class="fas fa-shopping-cart"></a>
+    </div>
+
+</header>
+
+<!-- header section ends-->
+
+<!-- search form  -->
+
+<form action="" id="search-form">
+    <input type="search" placeholder="search here..." name="" id="search-box">
+    <label for="search-box" class="fas fa-search"></label>
+    <i class="fas fa-times" id="close"></i>
+</form>
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="swiper-container home-slider">
+
+        <div class="swiper-wrapper wrapper" id="slider">
+
+          
+
+        </div>
+
+        <!--<div class="swiper-pagination"></div>-->
+
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- dishes section starts  -->
+
+<section class="dishes" id="dishes">
+
+    <h3 class="sub-heading"> Products </h3>
+    <h1 class="heading"> popular Products </h1>
+
+    <div class="box-container">
+
+        
+
+
+
+    </div>
+
+</section>
+
+<!-- dishes section ends -->
+
+<!-- about section starts  -->
+
+<!--<section class="about" id="about">
+
+    <h3 class="sub-heading"> about us </h3>-->
+    <!--<h1 class="heading"> why try us? </h1>
+
+    <div class="row">
+
+        <div class="image">
+            <img src="images/about-img.png" alt="">
+        </div>
+
+        <div class="content">
+            <h3>best food service</h3>
+            <p>the is everything better about shopping at the comfort of your own home no ques no obstacles you can definitely have time for other things</p>
+            
+            <div class="icons-container">
+                <div class="icons">
+                    <i class="fas fa-shipping-fast"></i>
+                    <span>free delivery</span>
+                </div>
+                <div class="icons">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>easy payments</span>
+                </div>
+                <div class="icons">
+                    <i class="fas fa-headset"></i>
+                    <span>24/7 service</span>
+                </div>
+            </div>
+            <a href="#" class="btn">learn more</a>
+        </div>
+
+    </div>
+
+</section> -->
+
+<!-- about section ends -->
+
+<!-- menu section starts  -->
+
+<!--<section class="menu" id="menu">
+
+    <h3 class="sub-heading"> our menu </h3>
+    <h1 class="heading"> today's speciality </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="image">
+                <img src="images/menu-1.jpg" alt="">
+                <a href="#" class="fas fa-heart"></a>
+            </div>
+            <div class="content">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h3>delicious food</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
+                <a href="#" class="btn">add to cart</a>
+                <span class="price">$12.99</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/menu-2.jpg" alt="">
+                <a href="#" class="fas fa-heart"></a>
+            </div>
+            <div class="content">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h3>delicious food</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
+                <a href="#" class="btn">add to cart</a>
+                <span class="price">$12.99</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/menu-3.jpg" alt="">
+                <a href="#" class="fas fa-heart"></a>
+            </div>
+            <div class="content">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h3>delicious food</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
+                <a href="#" class="btn">add to cart</a>
+                <span class="price">$12.99</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/menu-4.jpg" alt="">
+                <a href="#" class="fas fa-heart"></a>
+            </div>
+            <div class="content">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h3>delicious food</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
+                <a href="#" class="btn">add to cart</a>
+                <span class="price">$12.99</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/menu-5.jpg" alt="">
+                <a href="#" class="fas fa-heart"></a>
+            </div>
+            <div class="content">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h3>delicious food</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
+                <a href="#" class="btn">add to cart</a>
+                <span class="price">$12.99</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/menu-6.jpg" alt="">
+                <a href="#" class="fas fa-heart"></a>
+            </div>
+            <div class="content">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h3>delicious food</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
+                <a href="#" class="btn">add to cart</a>
+                <span class="price">$12.99</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/menu-7.jpg" alt="">
+                <a href="#" class="fas fa-heart"></a>
+            </div>
+            <div class="content">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h3>delicious food</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
+                <a href="#" class="btn">add to cart</a>
+                <span class="price">$12.99</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/menu-8.jpg" alt="">
+                <a href="#" class="fas fa-heart"></a>
+            </div>
+            <div class="content">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h3>delicious food</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
+                <a href="#" class="btn">add to cart</a>
+                <span class="price">$12.99</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/menu-9.jpg" alt="">
+                <a href="#" class="fas fa-heart"></a>
+            </div>
+            <div class="content">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h3>delicious food</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
+                <a href="#" class="btn">add to cart</a>
+                <span class="price">$12.99</span>
+            </div>
+        </div>
+
+    </div>
+
+</section> -->
+
+<!-- menu section ends -->
+
+<!-- review section starts  -->
+
+
+
+<!-- review section ends -->
+
+<!-- order section starts  -->
+
+<section class="order" id="order">
+
+    <h3 class="sub-heading"> have queries? </h3>
+    <h1 class="heading"> Feel free to contact us </h1>
+
+    <div class="form">
+
+        <div class="inputBox">
+            <div class="input">
+                <span>your name</span>
+                <input type="text" id="name" placeholder="enter your name">
+            </div>
+            <div class="input">
+                <span>your number</span>
+                <input type="number" id="contact" placeholder="enter your number">
+            </div>
+        </div>
+        <div class="inputBox">
+            <div class="input">
+                <span>query subject</span>
+                <input type="text" id="subject" placeholder="enter food name">
+            </div>
+            
+        </div>
+        
+        <div class="inputBox">
+            <div class="input">
+                <span>your message</span>
+                <textarea name="" id="msg" placeholder="enter your message" id="" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+
+        <button onclick="sendMail()" class="btn">send</button>
+
+    </div>
+
+</section>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p style="font-family: cursive;">hi there it looks like you alrady added this product if you want more you can just go to you`re cart and increase the quantity to the number of your liking</p>
+    <button class="goto" onclick="cart()">goto cart</button>
+  </div>
+
+</div>
+
+<!-- order section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>locations</h3>
+            <a href="#">india</a>
+            <a href="#">japan</a>
+            <a href="#">russia</a>
+            <a href="#">USA</a>
+            <a href="#">france</a>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">home</a>
+            <a href="#">dishes</a>
+            <a href="#">about</a>
+            <a href="#">menu</a>
+            <a href="#">reivew</a>
+            <a href="#">order</a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#">+123-456-7890</a>
+            <a href="#">+111-222-3333</a>
+            <a href="#">shaikhanas@gmail.com</a>
+            <a href="#">anasbhai@gmail.com</a>
+            <a href="#">mumbai, india - 400104</a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#">facebook</a>
+            <a href="#">twitter</a>
+            <a href="#">instagram</a>
+            <a href="#">linkedin</a>
+        </div>
+
+    </div>
+
+    <div class="credit"> copyright @ 2021 by <span>mr. web designer</span> </div>
+
+</section>
+
+<!-- footer section ends -->
+
+<!-- loader part  -->
+<div class="loader-container">
+    <img src="images/loader.gif" alt="">
+</div>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use 
+
+ https://firebase.google.com/docs/web/setup#available-libraries -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <!--<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>-->
+
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+
+<script type="text/javascript">
+
+
+    const firebaseConfig = {
+  apiKey: "AIzaSyBJIFHI6-heOanbGwgOJPzDUnSprKVYibo",
+  authDomain: "hackathon-22201.firebaseapp.com",
+  databaseURL: "https://hackathon-22201-default-rtdb.firebaseio.com",
+  projectId: "hackathon-22201",
+  storageBucket: "hackathon-22201.appspot.com",
+  messagingSenderId: "992681123090",
+  appId: "1:992681123090:web:f0f35ff9d8bb4ee44667cb",
+  measurementId: "G-2KSFQT6NHD"
+};
+
+ // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+ // firebase.analytics();
+// Initialize variables
+const auth = firebase.auth()
+const database = firebase.database()
+    
+    const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const userid = urlParams.get('userid')
+const items = urlParams.get('items')
+const vendor = urlParams.get('vendor')
+
+var firestores = firebase.database().ref('vendor');
+
+firestores.on("value", function(snapshot){
+  //console.log(snapshot.val());
+
+  snapshot.forEach(function(element){
+//console.log(element.key);
+   
+
+    document.querySelector('#slider').innerHTML += 
+      `<div class="swiper-slide slide" onclick="location.href = 'index.html?userid=${userid}&items=${items}&vendor=${element.key}'">
+                <div class="content">
+                   <!-- <span>our special dish</span>
+                    <h3>spicy noodles</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?</p>-->
+                    <a href="#" class="btn">order now</a>
+                </div>
+                <div class="image">
+                    <img src="${element.val().Logo}" alt="">
+                </div>
+            </div>
+
+        
+`
+
+    ;
+
+  
+
+
+  });
+});
+
+
+//console.log(vendor);
+
+var firepro = firebase.database().ref('products').orderByChild('Category').equalTo(items);
+
+firepro.on("value", function(snapshot){
+
+
+  snapshot.forEach(function(element){
+
+    const category = element.val().Category;
+    const provide = element.val().Provider;
+   if (vendor == provide) {
+
+    document.querySelector('.box-container').innerHTML += 
+      `
+      <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+           <!-- <a href="#" class="fas fa-eye"></a> -->
+            <img src="${element.val().logo}" alt="">
+            <h3>${element.val().Name}</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span>R ${element.val().Price}</span>
+            <a href="#" class="btn" onclick="addcart(${element.key})">add to cart</a>
+        </div>
+
+`
+
+    ;
+
+  
+} else if(vendor == "null"){
+
+    document.querySelector('.box-container').innerHTML += 
+      `
+      <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+           <!-- <a href="#" class="fas fa-eye"></a> -->
+            <img src="${element.val().logo}" alt="">
+            <h3>${element.val().Name}</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span>R ${element.val().Price}</span>
+            <a href="#" class="btn" onclick="addcart(${element.key})">add to cart</a>
+        </div>
+
+`
+
+    ;
+
+}else{
+    document.querySelector('.box-container').innerHTML += 
+      `
+      <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+           <!-- <a href="#" class="fas fa-eye"></a> -->
+            <img src="${element.val().logo}" alt="">
+            <h3>${element.val().Name}</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span>R ${element.val().Price}</span>
+            <a href="#" class="btn" onclick="addcart(${element.key})">add to cart</a>
+        </div>
+
+`
+
+    ;
+}
+
+  });
+});
+
+function addcart(id){
+    //let productKey;
+    //let productData = {};
+    firebase.database().ref('products/' + id).on('value', snap => {
+
+      const probrand = snap.val().Category;
+      const proname = snap.val().Name;
+      const uid = Date.now();
+
+      firebase.database().ref('cart/'+ userid).orderByChild('title').equalTo(proname).on('value', snapshot => {
+
+        snapshot.forEach(function(element){
+
+            console.log(element.val().title);
+            console.log(element.val().category);
+            console.log('do they work');
+
+            if (probrand == element.val().category) {
+
+                // Get the modal
+var modal = document.getElementById("myModal");
+
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+
+  modal.style.display = "block";
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+  } else {
+    firebase.database().ref('cart/'+ userid + '/' + uid).set({
+        provider:snap.val().Provider,
+        photo:snap.val().logo,
+        title:snap.val().Name,
+        description: snap.val().Tag,
+        category:snap.val().Category,
+        price:snap.val().Price,
+        quantity: 1,
+        status: 'pending',
+        date: new Date().toLocaleDateString(),
+      }).then(function(){
+      location.href = 'cart.html?userid=' + userid + "&vendor="+ vendor + "&items="+ items;  
+        })
+  }
+
+      })
+
+        })
+
+
+
+      
+    });
+    
+
+  }
+
+function sendMail(params, event){
+    //event.preventDefault()
+    var tempParams = {
+
+        subject: document.querySelector('#subject').value,
+        to_name: "matshwikatlego@gmail.com",
+        message: document.querySelector('#msg').value,
+        contacts: document.querySelector('#contact').value,
+        from_name: document.querySelector('#name').value,
+
+        };
+
+    emailjs.send('service_2c84yem','template_wd7u1dh',tempParams).then(function(res){
+        if (res.status == 200) {
+            alert("message succefully sent we will contact you sooner than you think")
+        }
+    })
+}
+
+
+function todo(){
+    location.href = 'todo.html?userid=' + userid + "&vendor="+ vendor + "&items="+ items;
+}
+function delivery(){
+    location.href = 'delivery.html?userid=' + userid + "&items="+ items + "&vendor="+ vendor;
+}
+function cart(){
+    location.href = 'cart.html?userid=' + userid + "&items="+ items + "&vendor="+ vendor;
+}
+function checkout(){
+    location.href = 'checkout.html?userid=' + userid + "&items="+ items + "&vendor="+ vendor;
+}
+function chat(){
+    location.href = 'chat/chat.html?userid=' + userid + "&items="+ items + "&vendor="+ vendor;
+}
+
+/*
+
+var fireproducts = firebase.database().ref('products/1634174728550');
+
+fireproducts.on("value", function(snapshot){
+  console.log(snapshot.val().Name);
+
+
+    if ("bread loaf" == snapshot.val().Name && "unnamed" == snapshot.val().Brand) {
+console.log(element.val());
+alert("same stuff buddy");
+   }
+
+   
+});
+
+*/
+
+
+
+
+</script>
+
+</body>
+</html>

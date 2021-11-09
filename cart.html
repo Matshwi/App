@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daai Epp | Home</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/modal.css">
+
+<script defer src="js/modal.js"></script>
+<style type="text/css">
+    .checkpoint{
+        background-color: #69ae14;
+        display: inline-block;
+        color: var(--white);
+        padding: 0.7rem 1.6rem;
+       font-weight: 700;
+       border-radius: 0rem 3rem 3rem 3rem;
+       margin-left: 20px;
+       margin-bottom: 20px;
+       cursor: pointer;
+    }
+
+
+</style>
+
+</head>
+<body>
+    
+<!-- header section starts      -->
+
+<header>
+
+    <a href="#" class="logo"><i class="fas fa-utensils"></i>Daai-Epp.</a>
+
+    <nav class="navbar">
+        <a onclick="home()">home</a>
+        <a onclick="todo()">todo</a>
+        <a onclick="delivery()">delivery</a>
+        <a class="active" href="#">cart</a>
+        <a onclick="checkout()">checkout</a>
+        <a onclick="chat()">chat to store</a>
+    </nav>
+
+    <div class="icons">
+        <i class="fas fa-bars" id="menu-bars"></i>
+        <i class="fas fa-search" id="search-icon"></i>
+        <a href="#" class="fas fa-heart"></a>
+        <a href="#" class="fas fa-shopping-cart"></a>
+    </div>
+
+</header>
+
+<!-- header section ends-->
+
+<!-- search form  -->
+
+<form action="" id="search-form">
+    <input type="search" placeholder="search here..." name="" id="search-box">
+    <label for="search-box" class="fas fa-search"></label>
+    <i class="fas fa-times" id="close"></i>
+</form>
+
+<!-- home section starts  -->
+
+
+
+<!-- Cart section ends -->
+
+<div class="container cart">
+      <table id="cart">
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+        </tr>
+        
+        
+        
+      </table>
+
+      <div class="total-price">
+        <table>
+          <tr>
+            <td>Subtotal</td>
+            <td>$200</td>
+          </tr>
+          <tr>
+            <td>Tax</td>
+            <td>$50</td>
+          </tr>
+          <tr>
+            <td>Total</td>
+            <td>$250</td>
+          </tr>
+        </table>
+        <a  data-modal-target="#modal" class="checkout btn">Proceed To Checkout</a>
+      </div>
+    </div>
+
+
+
+<!-- Cart section starts  -->
+
+
+
+<!-- dishes section ends -->
+
+<div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="title">checkout point</div>
+      <button data-close-button class="close-button">&times;</button>
+    </div>
+    <div class="modal-body">
+     <div class="first"> <h1>Hi</h1> you`r at the checkout point would you like a new address or you will use the current address this is for delivery purposes</div>
+      <div class="last"> <h1>add address</h1> <input placeholder="please enter address" type="text" name="" style="border: 2px solid grey; width: 100%;"></div>
+    </div>
+<div>
+    <button class="checkpoint showhide">change address</button>
+    <button class="checkpoint">continue</button>
+</div>
+  </div>
+  <div id="overlay"></div>
+
+<!-- about section starts  -->
+
+
+
+<!-- about section ends -->
+
+<!-- menu section starts  -->
+
+
+
+<!-- menu section ends -->
+
+<!-- review section starts  -->
+
+
+
+<!-- review section ends -->
+
+<!-- order section starts  -->
+
+
+
+<!-- order section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>locations</h3>
+            <a href="#">Johannesburg</a>
+            <a href="#">Pretoria</a>
+            <a href="#">Mamelodi</a>
+            <a href="#">Soshanguve</a>
+            <a href="#">Attridgville</a>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">home</a>
+            <a href="#">dishes</a>
+            <a href="#">about</a>
+            <a href="#">menu</a>
+            <a href="#">reivew</a>
+            <a href="#">order</a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#">079-456-7890</a>
+            <a href="#">081-222-3333</a>
+            <a href="#">info@gmail.com</a>
+            <a href="#">request@gmail.com</a>
+            <a href="#">Pretoria, South Africa - 0001</a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#">facebook</a>
+            <a href="#">twitter</a>
+            <a href="#">instagram</a>
+            <a href="#">linkedin</a>
+        </div>
+
+    </div>
+
+    
+
+</section>
+
+<!-- footer section ends -->
+
+<!-- loader part  -->
+<div class="loader-container">
+    <img src="images/loader.gif" alt="">
+</div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use 
+
+ https://firebase.google.com/docs/web/setup#available-libraries -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <!--<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>-->
+
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+
+<script type="text/javascript">
+  
+  const firebaseConfig = {
+  apiKey: "AIzaSyBJIFHI6-heOanbGwgOJPzDUnSprKVYibo",
+  authDomain: "hackathon-22201.firebaseapp.com",
+  databaseURL: "https://hackathon-22201-default-rtdb.firebaseio.com",
+  projectId: "hackathon-22201",
+  storageBucket: "hackathon-22201.appspot.com",
+  messagingSenderId: "992681123090",
+  appId: "1:992681123090:web:f0f35ff9d8bb4ee44667cb",
+  measurementId: "G-2KSFQT6NHD"
+};
+
+ // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+ // firebase.analytics();
+// Initialize variables
+const auth = firebase.auth()
+const database = firebase.database()
+
+
+const urlParams = new URLSearchParams(window.location.search);
+const userid = urlParams.get('userid');
+
+
+
+
+
+
+  var countup = 0;
+
+      var countdown = 0;
+
+
+var firetest = firebase.database().ref('cart/' + userid);
+
+firetest.once("value", function(snapshot){
+
+  var count = snapshot.numChildren();
+
+  console.log(count + " does it work");
+
+ snapshot.forEach(function(element){
+
+
+
+     
+    
+
+
+    document.getElementById("cart").innerHTML +=
+
+      `
+      <tr>
+          <td>
+            <div class="cart-info">
+              <img src="${element.val().photo}" alt="" />
+              <div>
+                <p>${element.val().title}</p>
+                <span>Price: R ${element.val().price}</span>
+                <br />
+                <a><button>remove</button></a>
+              </div>
+            </div>
+          </td>
+          <td><input type="number" value="1" min="1" /></td>
+          <td>R ${element.val().price}</td>
+        </tr>
+
+      `;
+
+/*var totalprice = document.querySelector("#price");
+
+      
+
+var counter = document.querySelector("#quantity").value;
+
+      
+
+
+document.getElementById("minus").onclick = function(){
+
+          countdown -= 1;
+
+             
+
+          counter = countdown;
+
+          totalprice.innerHTML = countup*element.val().price;
+
+          console.log(countup*element.val().price);
+
+
+
+
+        
+}
+
+document.getElementById("plus").onclick = function(){
+   
+          countup += 1;
+
+          counter = countup;
+
+          totalprice.innerHTML = countup*element.val().price;
+
+          console.log(countup*element.val().price);
+}*/
+      
+ 
+
+
+
+     })
+
+
+ 
+})
+
+
+
+const first = document.querySelector('.first');
+    const last = document.querySelector('.last');
+
+    const cont = document.querySelector('.showhide');
+
+    var a;
+      cont.addEventListener('click', ()=>{
+
+        if (a==1) {
+          first.style.display = 'none';
+          last.style.display = 'block';
+          cont.innerHTML = "Hide";
+          return a=0;
+        }
+        else {
+          last.style.display = 'none';
+          first.style.display = 'block';
+         cont.innerHTML = "show";
+          return a=1;
+
+        }
+
+      })
+
+      function todo(){
+    location.href = 'todo.html?userid=' + userid + "&vendor="+ vendor + "&items="+ items;
+}
+function delivery(){
+    location.href = 'delivery.html?userid=' + userid + "&items="+ items + "&vendor="+ vendor;
+}
+function home(){
+    location.href = 'index.html?userid=' + userid + "&items="+ items + "&vendor="+ vendor;
+}
+function checkout(){
+    location.href = 'checkout.html?userid=' + userid + "&items="+ items + "&vendor="+ vendor;
+}
+function chat(){
+    location.href = 'chat/chat.html?userid=' + userid + "&items="+ items + "&vendor="+ vendor;
+}
+
+</script>
+</body>
+</html>
