@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>DaaiEpp | starter</title>
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+			<div class="login">
+				<button class="button login__submit" onclick="driver()">
+					<span class="button__text">Driver</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>	
+				<button class="button login__submit" onclick="Vendor()">
+					<span class="button__text">Vendor</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>	
+				<button class="button login__submit" onclick="Customer()">
+					<span class="button__text">Customer</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>				
+			</div>
+			<div class="social-login">
+				<h3>log in via</h3>
+				<div class="social-icons">
+					<a href="#" class="social-login__icon fab fa-instagram"></a>
+					<a href="#" class="social-login__icon fab fa-facebook"></a>
+					<a href="#" class="social-login__icon fab fa-twitter"></a>
+				</div>
+			</div>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>
+<!-- partial -->
+
+<script type="text/javascript">
+	
+	function driver(){
+		location.href ="../register/driver/index.html";
+	}
+	function Vendor(){
+		location.href ="../register/vendor/index.html";
+	}
+	function Customer(){
+		location.href ="../register/customer/index.html";
+	}
+
+</script>
+  
+</body>
+</html>
